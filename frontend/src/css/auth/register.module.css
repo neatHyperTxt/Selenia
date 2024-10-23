@@ -1,7 +1,36 @@
-.register{
-    display: flex;
+.container {
+    display: grid;
     align-items: center;
-    justify-content: center;
-    margin: 4rem;
-    background-color: cornsilk;
-}
+    grid-template-columns: 50% 50%;
+    /* background-color: cornsilk; */
+    height: 100vh;
+  }
+  
+  .container > div:first-child {
+    width: 100%;
+    height: 100%;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+  }
+  
+  .form {
+    margin-left: 1rem;
+  }
+  
+  .paraErrorWarnings {
+    font-size: 0.75rem;
+    color: blue;
+  }
+  
+  .fullnameContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1rem;
+  }
+  
