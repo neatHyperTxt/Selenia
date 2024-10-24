@@ -1,10 +1,18 @@
 .input{
     display: block;
-    width: 90%;
-    padding: 12px 20px;
-    margin: 1rem 0;
+    width: 100%;
+    padding: 15px 20px;
     box-sizing: border-box;
     border-radius: 2.5px;
-    border-width: 0px 0px 1px 0px;
-    border-color: blue;
+    border: none;
+    margin: 1rem 0rem;
+    background-color: #3A3A4A;
+    color: white;
+    outline: none;
+}
+.input::placeholder{
+    font-size: medium;
+}
+.input:focus{
+    outline: 2px solid #6D28D9;
 }
