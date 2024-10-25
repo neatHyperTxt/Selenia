@@ -4,7 +4,7 @@ import Button from './Button';
 import axios from 'axios';
 import styles from '../css/auth/register.module.css'
 
-function Register() {
+function Register(props) {
   const [firstName,setFirstName] = useState('');
   const [lastName,setLastName] = useState('');
   const [username,setUsername] = useState('');
@@ -52,9 +52,6 @@ function Register() {
   const lastNameHandler = (event)=>{
     setLastName(event.target.value);
   }
-  const usernameHandler = (event)=>{
-    setUsername(event.target.value);
-  }
   const emailHandler = (event)=>{
     setEmail(event.target.value);
   }
@@ -97,7 +94,7 @@ function Register() {
       </div>
       <form className={styles.form} onSubmit={formHandler} action="">
         <h1>Create an account</h1>
-        <p>Already an account? <a href="">Log in</a></p>
+        <p>Already an account? <a onClick={props.toggle}>Log in</a></p>
         <div className={styles.fullnameContainer}>
           <div className={styles.fname}>
             <Input type="text" name="fname" id="fname" value={firstName} onChange={firstNameHandler} placeholder="First Name"/>

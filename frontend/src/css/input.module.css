@@ -3,7 +3,7 @@
     width: 100%;
     padding: 15px 20px;
     box-sizing: border-box;
-    border-radius: 2.5px;
+    border-radius: 5px;
     border: none;
     margin: 1rem 0rem;
     background-color: #3A3A4A;
@@ -12,6 +12,7 @@
 }
 .input::placeholder{
     font-size: medium;
+    color: rgb(162, 161, 161);
 }
 .input:focus{
     outline: 2px solid #6D28D9;
