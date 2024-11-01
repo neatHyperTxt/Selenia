@@ -1,7 +1,18 @@
 const path = require('path');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const Users = require('./models/User');
 dotenv.config();
+
+mongoose.connect('mongodb://127.0.0.1:27017/Selenia')
+    .then(()=>{
+        console.log("Database Connection Open!!")
+    })
+    .catch(err =>{
+        console.log("Database could not Connect!!!")
+        console.log(err);
+    })
 
 const express = require('express');
 const app = express();

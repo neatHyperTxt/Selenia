@@ -7,7 +7,6 @@ import styles from '../css/auth/register.module.css'
 function Register(props) {
   const [firstName,setFirstName] = useState('');
   const [lastName,setLastName] = useState('');
-  const [username,setUsername] = useState('');
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [formErrors,setFormErrors] = useState({
@@ -25,9 +24,6 @@ function Register(props) {
     }
     if(!data.lname){
       errors.lname = "Last Name should be present!!";
-    }
-    if(!data.uname){
-      errors.uname = "Username should be present!!";
     }
     if(!data.email){
       errors.email = "Email should be present!!";
@@ -63,23 +59,22 @@ function Register(props) {
     const data = {
       lname: lastName,
       fname: firstName,
-      uname: username,
       email: email,
       password: password
     }
+ 
     const errors = validate(data);
-    setFormErrors(errors);
-    console.log(Object.keys(errors));
-    setFirstName('');
-    setLastName('');
-    setUsername('');
-    setEmail('');
-    setPassword('');
-    if(Object.keys(errors) === 0){
+    setFormErrors(errors); 
+    if(Object.keys(errors).length === 0){
       try {
+        console.log(data);
         const response = await axios.post('http://localhost:4000/api/register',data);
         console.log('Registration successful');
         console.log(response.data);
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPassword('');
       } catch (error) {
         console.log('Registration error');
       }

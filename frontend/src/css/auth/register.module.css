@@ -68,4 +68,7 @@
     margin-right: 1rem;
     accent-color: white
   }
+  a{
+    cursor: pointer;
+  }
   

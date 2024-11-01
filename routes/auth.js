@@ -4,13 +4,12 @@ const fs = require('fs');
 const path = require('path');
 const dataPath = path.join(__dirname, '../data.json');
 router.post('/register',(req,res)=>{
-    const {fname,lname,uname,email,password} = req.body;
+    const {fname,lname,email,password} = req.body;
     console.log('From the backend');
-    console.log(fname,lname,uname,email,password);
+    console.log(fname,lname,email,password);
     const responseData = {
         fname: fname,
         lname: lname,
-        uname: uname,
         email: email,
         password: password
     }
