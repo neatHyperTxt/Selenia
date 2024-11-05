@@ -1,10 +1,13 @@
 import {useState} from 'react';
-import Input from './Input';
-import Button from './Button';
+import { useNavigate,Link } from 'react-router-dom';
+import Input from '../Input';
+import Button from '../Button';
 import axios from 'axios';
-import styles from '../css/auth/register.module.css'
+import styles from '../../css/auth/register.module.css'
+ 
 
-function Login(props) {
+function Login() {
+  const navigate = useNavigate();
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [formErrors,setFormErrors] = useState({
@@ -46,15 +49,17 @@ function Login(props) {
     const errors = validate(data);
     setFormErrors(errors);
     console.log(Object.keys(errors));
-    setEmail('');
-    setPassword('');
-    if(Object.keys(errors) === 0){
+    if(Object.keys(errors).length === 0){
       try {
-        const response = await axios.post('http://localhost:4000/api/register',data);
-        console.log('Registration successful');
+        console.log("HI");
+        const response = await axios.post('http://localhost:4000/api/login',data);
+        console.log('Login successful');
+        console.log(data);
         console.log(response.data);
+        localStorage.setItem('isAuthenticated',email);
+        navigate('/');
       } catch (error) {
-        console.log('Registration error');
+        console.log('Login error');
       }
     }
   }
@@ -67,7 +72,7 @@ function Login(props) {
       </div>
       <form className={styles.form} onSubmit={formHandler} action="">
         <h1>Login</h1>
-        <p>New here? <a onClick={props.toggle}>Create an account</a></p>
+        <p>New here? <Link to='/auth/register'>Create an account</Link></p>
         <div>
           <Input type="email" name="email" id="email" value={email} onChange={emailHandler} placeholder="Email"/>
           <p className={styles.paraErrorWarnings}>{formErrors.email}</p>

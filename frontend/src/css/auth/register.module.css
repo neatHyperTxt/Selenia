@@ -44,6 +44,7 @@
   .container .paraErrorWarnings {
     font-size: 0.75rem;
     color: #FFC107;
+    text-align: left;
   }
   
   .fullnameContainer {
