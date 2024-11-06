@@ -8,6 +8,7 @@ function Profile() {
   return (
     <>
     <h1>This is profile of {user_info.firstname}</h1>
+    <h2>The email is {user_info.email}</h2>
     </>
   )
 }
