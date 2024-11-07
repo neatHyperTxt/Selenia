@@ -1,0 +1,78 @@
+.modal_container {  
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px; 
+    min-height: 500px;
+    padding: 2rem;  
+    text-align: left;
+    border-radius: 5px;
+}
+
+.modal_container button {
+    text-align: right;
+}
+
+.modal_container h1 {
+    margin: 0;
+    font-weight: 400;
+} 
+.input{
+  position: relative;
+  margin-top: 1.5rem;
+}
+.input_field{
+  width: 100%;
+  padding: 10px 0 10px 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  font-size: 16px;
+}
+.input_field:focus {
+    outline: none;
+    border-bottom-color:#6658d3;
+  }
+ 
+.input_label {
+    position: absolute;
+    top: 13px; 
+    left: 0;
+    font-size: 16px;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.2s ease;
+  }
+  
+  .input_field:focus + .input_label,
+  .input_field:not(:placeholder-shown) + .input_label {
+    top: -15px;
+    font-size: 12px;
+    color: #6658d3; 
+    border-bottom:#6658d3;
+  }
+.submitHandler{
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+    right: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding-top: 1rem;
+    background: white;
+}
+.submitHandler button{
+    padding: 0.75rem 1.5rem;
+    margin-top: 5rem;
+    border: none;
+    background-color: blueviolet;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+.successMessage{
+    background-color: #6658d3;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}

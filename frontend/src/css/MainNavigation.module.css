@@ -20,6 +20,83 @@
   
   .list a:hover,
   .list a.active {
-    color: blueviolet;
-    text-decoration: underline;
-  }
+    color: blueviolet; 
+  }  
+.go_back {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    padding: 0;      
+    text-decoration: none; 
+} 
+.go_back_button {
+    display: inline-block; 
+}
+.profileContainer {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.dropdownContainer{ 
+    position: absolute;
+    top: 100%;
+    background-color: white;
+    right: 100%; 
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    min-width: 150px;
+} 
+.dropdownContainer a{
+    display: block;
+    padding: 8px 16px; 
+    border-bottom: 1px solid rgba(0, 0, 0,0.1);
+}
+.dropdownContainer .logout_link{
+    border: none;
+}
+.profileContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.userIcon {
+    color: #333;
+    cursor: pointer;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    min-width: 150px;
+    padding: 10px 0;
+    z-index: 1000;
+    display: none; /* Hide initially */
+}
+
+.profileContainer:hover .dropdownMenu,
+.profileContainer .dropdownMenu:hover {
+    display: block; /* Show on hover */
+}
+
+.dropdownMenu li {
+    list-style: none;
+}
+
+.dropdownMenu a {
+    display: block;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdownMenu a:hover {
+    background-color: #f2f2f2;
+    color: #000;
+}
+ 

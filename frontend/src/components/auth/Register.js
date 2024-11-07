@@ -51,7 +51,7 @@ function Register() {
 
   const formHandler = async (event) => {
     event.preventDefault();
-    const data = { fname: firstName, lname: lastName, email, password };
+    const data = { fname: firstName, lname: lastName, email, password,bio:'',followers:[],following:[]};
     const errors = validate(data);
     setFormErrors(errors);
 

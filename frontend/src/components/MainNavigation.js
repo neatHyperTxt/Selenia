@@ -1,9 +1,10 @@
-import {useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import React from 'react'
 import classes from '../css/MainNavigation.module.css';
 import { useSelector,useDispatch } from 'react-redux';
 import { authActions } from '../store/authSlice';
+import ProfileDropdown from './ProfileDropdown';
+import {CgChevronLeft} from 'react-icons/cg';
 function MainNavigation() {
   const dispatch = useDispatch();   
   const isAuthenticated = useSelector(state=>state.auth.isAuthenticated);     
@@ -15,22 +16,13 @@ function MainNavigation() {
     <header className={classes.header}>
         <nav>
             <ul className={classes.list}>
+                <li> 
+                    <NavLink className={classes.go_back} to="..">
+                    <CgChevronLeft className={classes.go_back_button} size={30}/> 
+                    </NavLink>
+                </li>  
                 <li>
-                    <NavLink to="..">Back</NavLink>
-                </li>
-                <li>
-                    <NavLink to="link1" className={({isActive})=> isActive? classes.active:''} end>Link1</NavLink>
-                </li>
-                <li>
-                    <NavLink to="link2" className={({isActive})=> isActive? classes.active:''} end>Link2</NavLink>
-                </li>
-                <li>
-                    {isAuthenticated ? <NavLink to="/profile" className={({isActive})=> isActive? classes.active:''} end>Profile</NavLink>
-                    : <NavLink to="/auth/login" className={({isActive})=> isActive? classes.active:''} end>Sign In</NavLink>
-                    } 
-                </li>
-                <li>
-                    {isAuthenticated && <NavLink to="/" onClick={logoutHandler}>Log Out</NavLink>}
+                    <ProfileDropdown/>
                 </li>
             </ul>
         </nav>

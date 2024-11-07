@@ -60,7 +60,7 @@ function Login() {
         console.log("HI");
         const response = await axios.post('http://localhost:4000/api/login',data);
         console.log('Login successful');
-        setSuccessMessage('Login Successful!!! You will be redirected in 5 seconds');
+        setSuccessMessage('Login Successful!!! You will be redirected in 3 seconds');
         console.log(data);
         console.log(response.data);
         localStorage.setItem('isAuthenticated',email);  
@@ -74,7 +74,7 @@ function Login() {
             dispatch(authActions.login());
           }
         };
-        countdownTimer(5);
+        countdownTimer(3);
       } catch (error) {
         setBackendError(error.response.data.message);
         console.log('Login error');
@@ -83,7 +83,7 @@ function Login() {
   }
   return (
      <>
-     {successMessage && <p>{successMessage.replace(5,countdown)}</p>}
+     {successMessage && <p>{successMessage.replace(3,countdown)}</p>}
      {backendError && <p>{backendError}</p>}
      <div className={styles.container}>
       <div>
