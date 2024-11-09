@@ -1,0 +1,54 @@
+.userInfo_container{
+    background-color: aqua; 
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: 30% auto;
+    border-radius: 10px;
+    padding: 1rem;
+}
+.user_profile_image{
+    align-self:center;
+    background-color: aquamarine;
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+    background-image: url(https://images.unsplash.com/photo-1505767595906-d27f4cf630a6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGV4cGxvcmV8ZW58MHx8MHx8fDA%3D);
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    margin-left: 4rem;
+}
+.user_sub_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: white;
+    padding: 0 2rem;
+    border-radius: 10px;
+    color: black;
+} 
+.addPostButton{
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgb(72, 128, 232);
+    color:white;
+    margin-left: 2rem;
+}
+.user_sub_info_1{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+}
+.postContainer{
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 10px; 
+} 

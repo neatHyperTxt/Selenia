@@ -105,6 +105,42 @@ router.post('/test', (req, res) => {
   console.log('Test route reached');
   res.status(200).send('Test route working');
 });
+router.post('/follow', async (req, res) => {
+  console.log(req.body);
+  const {email,id} = req.body;
+  console.log('Backend',email,id);
+  try {
+    const currentUser = await Users.findOne({email:email});
+    console.log(currentUser);
+    await Users.findByIdAndUpdate(currentUser._id,{
+      $push:{following:id}
+    });
+    await Users.findByIdAndUpdate(id,{
+      $push:{followers:currentUser._id}
+    });
+    res.status(200).json({message:"Follow successful"});
+  } catch (error) {
+    console.log("From the backend",error);
+    res.status(401).json({message:"Could not follow the user!!"});
+  }
+});
+router.post('/unfollow', async (req, res) => {
+  const {email,id} = req.body;
+  try {
+    const currentUser = await Users.findOne({email:email});
+    console.log(currentUser);
+    await Users.findByIdAndUpdate(currentUser._id,{
+      $pull:{following:id}
+    });
+    await Users.findByIdAndUpdate(id,{
+      $pull:{followers:currentUser._id}
+    });
+    res.status(200).json({message:"Follow successful"});
+  } catch (error) {
+    console.log("From the backend",error);
+    res.status(401).json({message:"Could not follow the user!!"});
+  }
+});
 
 
 module.exports = router;

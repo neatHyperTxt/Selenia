@@ -37,10 +37,14 @@ const UserSchema = new Schema({
         type:Schema.Types.ObjectId,
         ref:'Post'
     }],
+    profileImage:{
+        type:String,
+        default:'https://img.freepik.com/premium-vector/user-profile-icon-flat-style-member-avatar-vector-illustration-isolated-background-human-permission-sign-business-concept_157943-15752.jpg'
+    },
     createdAt:{
         type:Date,
         default:Date.now
-    }
+    }, 
 })
 
 module.exports = mongoose.model('User',UserSchema);

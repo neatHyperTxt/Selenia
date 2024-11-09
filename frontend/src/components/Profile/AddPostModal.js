@@ -7,8 +7,7 @@ import classes from '../../css/Profile/AddPostModal.module.css';
 const AddPostModal = forwardRef(function AddPostModal(props, ref) { 
   const navigate = useNavigate();
   const imageRef = useRef();
-  const captionRef = useRef();
-  const [successMessage,setSuccessMessage] = useState('');
+  const captionRef = useRef(); 
   const submitHandler = async(event) => {
     event.preventDefault();
     const data = {
@@ -19,8 +18,9 @@ const AddPostModal = forwardRef(function AddPostModal(props, ref) {
     console.log(data);
     try {
         const response = await axios.post('http://localhost:4000/api/addPost', data);
-        console.log('Post created successfully:', response.data);
-        setSuccessMessage('Post Created Successfully');
+        console.log('Post created successfully:', response.data); 
+        imageRef.current.value = '';
+        captionRef.current.value = '';
         props.closeModal();
         navigate('/profile');
       } catch (error) {
@@ -29,8 +29,7 @@ const AddPostModal = forwardRef(function AddPostModal(props, ref) {
   };
 
   return (
-    <>
-        {successMessage && <p className={classes.successMessage}>{successMessage}</p>}
+    <> 
         <dialog ref={ref} className={classes.modal_container}>
         <h1>Add A Post</h1>
         <form onSubmit={submitHandler} method="dialog">
@@ -51,15 +50,7 @@ const AddPostModal = forwardRef(function AddPostModal(props, ref) {
                     type="text"   
                 />
                 <label className={classes.input_label}>Caption</label>
-            </div>
-            {/* <div className={classes.input}>
-                <input
-                    placeholder=" " 
-                    className={classes.input_field}
-                    type="search" 
-                />
-                <label className={classes.input_label}>Tags</label>
-            </div> */}
+            </div> 
             <div className={classes.submitHandler}>
                 <button type="submit" onSubmit={submitHandler}>Add</button>
                 <button type="button" onClick={props.onClose}>Close</button>
